@@ -1,7 +1,20 @@
+// importações
+import { BrowserRouter, Route } from "react-router-dom"
+import { AuthContextProvider } from "./contexts/AuthContext"
+
+// rotas
+import { Home } from "./pages/Home"
+import { NewRoom } from "./pages/NewRoom"
+
 function App() {
-  return (
-    <h1>Aopa! belê? me llamo yoselin</h1>
-  );
+    return (
+        <BrowserRouter>
+            <AuthContextProvider>
+                <Route path='/' exact component={Home}></Route>
+                <Route path='/rooms/new' component={NewRoom}></Route>
+            </AuthContextProvider>
+        </BrowserRouter>
+    )
 }
 
-export default App;
+export default App
